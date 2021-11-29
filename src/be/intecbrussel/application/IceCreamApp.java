@@ -11,16 +11,21 @@ import be.intecbrussel.sellers.PriceList;
 public class IceCreamApp {
     public static void main(String[] args) {
         PriceList priceList = new PriceList();
-        IceCreamSeller iceCube = new IceCreamSalon(priceList);
+        IceCreamSalon iceCube = new IceCreamSalon(priceList);
         Cone.Flavor[] flavors = {Cone.Flavor.BANANA, Cone.Flavor.LEMON, Cone.Flavor.CHOCOLATE};
 
-        iceCube.orderCone(flavors);
-        iceCube.orderMagnum(Magnum.MagnumType.ROMANTICSTRAWBERRIES);
-        iceCube.orderIceRocket();
+        //couldn't get it to work without try-catch
+        try {
+            Cone myCone = iceCube.orderCone(flavors);
+            Magnum myMagnum = iceCube.orderMagnum(Magnum.MagnumType.ROMANTICSTRAWBERRIES);
+            IceRocket myIceRocket = iceCube.orderIceRocket();
 
-        Eatable[] eatables = {iceCube.orderCone(flavors), iceCube.orderMagnum(Magnum.MagnumType.ROMANTICSTRAWBERRIES), iceCube.orderIceRocket()};
-        for (Eatable eatable : eatables){
-            eatable.eat();
+            Eatable[] eatables = {myCone, myMagnum, myIceRocket};
+            for (Eatable eatable : eatables){
+                eatable.eat();
+            }
+        } catch (Exception e){
+            System.out.println(e.toString());
         }
         System.out.println(iceCube.toString());
     }

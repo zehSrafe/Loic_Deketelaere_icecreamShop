@@ -12,13 +12,13 @@ public class IceCreamSalon implements IceCreamSeller{
         this(new PriceList());
     }
 
+    public IceCreamSalon(PriceList priceList) {
+        this.priceList = priceList;
+    }
+
     @Override
     public String toString() {
         return "Total profit: €" + getProfit();
-    }
-
-    public IceCreamSalon(PriceList priceList) {
-        this.priceList = priceList;
     }
 
     @Override
