@@ -24,9 +24,9 @@ public class IceCreamApp {
             for (Eatable eatable : eatables){
                 eatable.eat();
             }
+            System.out.println(iceCube.toString());
         } catch (Exception e){
             System.out.println(e.toString());
         }
-        System.out.println(iceCube.toString());
     }
 }
