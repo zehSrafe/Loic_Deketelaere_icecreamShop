@@ -20,7 +20,7 @@ public class IceCreamCar implements IceCreamSeller{
 
     @Override
     public String toString() {
-        return String.format("Total profit: €%.2f", getProfit());
+        return String.format("Made a total profit of €%.2f.", getProfit());
     }
 
     @Override

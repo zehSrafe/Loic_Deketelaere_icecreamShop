@@ -15,21 +15,32 @@ public class Cone implements Eatable{
 
     @Override
     public void eat() {
-        StringBuilder sb = new StringBuilder("Eating cone with flavor(s): ");
-        for (Flavor flavor : balls){
-            sb.append(flavor).append(",");
+        StringBuilder sb = new StringBuilder("Eating a cone with flavor(s):");
+        for (int i = 0; i < balls.length - 1; i++){
+            sb.append(" ").append(balls[i].getFlavor()).append(",");
         }
+        sb.append(" ").append(balls[balls.length - 1].getFlavor()).append(".");
         System.out.println(sb);
     }
 
     public enum Flavor {
-        STRAWBERRY,
-        BANANA,
-        CHOCOLATE,
-        VANILLA,
-        LEMON,
-        STRACIATELLA,
-        MOKKA,
-        PISTACHE;
+        STRAWBERRY("strawberry"),
+        BANANA("banana"),
+        CHOCOLATE("chocolate"),
+        VANILLA("vanilla"),
+        LEMON("lemon"),
+        STRACIATELLA("straciatella"),
+        MOKKA("mokka"),
+        PISTACHE("pistache");
+
+        private final String flavor;
+
+        Flavor(String flavor){
+            this.flavor = flavor;
+        }
+
+        public String getFlavor(){
+            return flavor;
+        }
     }
 }

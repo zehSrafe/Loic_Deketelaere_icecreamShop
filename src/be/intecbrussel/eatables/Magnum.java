@@ -17,14 +17,24 @@ public class Magnum implements Eatable{
 
     @Override
     public void eat() {
-        System.out.println("Eating a " + type + " magnum");
+        System.out.println("Eating a " + type.getMagnumType() + " magnum.");
     }
 
     public enum MagnumType{
-        MILKCHOCOLATE,
-        WHITECHOCOLATE,
-        BLACKCHOCOLATE,
-        ALPINENUTS,
-        ROMANTICSTRAWBERRIES;
+        MILKCHOCOLATE("milk chocolate"),
+        WHITECHOCOLATE("white chocolate"),
+        BLACKCHOCOLATE("black chocolate"),
+        ALPINENUTS("alpine nuts"),
+        ROMANTICSTRAWBERRIES("romantic strawberries");
+
+        private final String type;
+
+        MagnumType(String type){
+            this.type = type;
+        }
+
+        public String getMagnumType(){
+            return type;
+        }
     }
 }

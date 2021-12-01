@@ -12,11 +12,12 @@ public class IceCreamAppV2 {
         Stock stock = new Stock(1, 2, 6, 1);
         IceCreamCar whiteMiniVan = new IceCreamCar(priceList, stock);
         Cone.Flavor[] flavors = {Cone.Flavor.STRACIATELLA, Cone.Flavor.LEMON, Cone.Flavor.CHOCOLATE};
+        Cone.Flavor[] flavor = {Cone.Flavor.PISTACHE};
 
         // doesn't have to be in a try-catch but gives a prettier output in case of NoMoreIceCreamException
         try {
             Cone myCone = whiteMiniVan.orderCone(flavors);
-            Cone mySecondCone = whiteMiniVan.orderCone(flavors);
+            Cone mySecondCone = whiteMiniVan.orderCone(flavor);
             Magnum myMagnum = whiteMiniVan.orderMagnum(Magnum.MagnumType.ROMANTICSTRAWBERRIES);
             IceRocket myIceRocket = whiteMiniVan.orderIceRocket();
 //            IceRocket myUnavaibleIceRocket = whiteMiniVan.orderIceRocket();
