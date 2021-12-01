@@ -1,6 +1,6 @@
 package be.intecbrussel.sellers;
 
-public class NoMoreIceCremException extends Exception{
+public class NoMoreIceCremException extends RuntimeException{
     public NoMoreIceCremException() {
         this("The item you are trying to order is out of stock.");
     }

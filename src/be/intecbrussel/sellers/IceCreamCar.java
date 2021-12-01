@@ -24,19 +24,20 @@ public class IceCreamCar implements IceCreamSeller{
     }
 
     @Override
-    public Cone orderCone(Cone.Flavor[] flavors) throws Exception {
+    public Cone orderCone(Cone.Flavor[] flavors) throws NoMoreIceCremException {
         try {
             prepareCone(flavors);
             totalProfit += flavors.length * priceList.getBallPrice();
             return new Cone(flavors);
         } catch (NoMoreIceCremException e){
-            throw new Exception(e);
+            throw new NoMoreIceCremException(e.getMessage());
         }
     }
 
     private Cone prepareCone(Cone.Flavor[] flavors) throws NoMoreIceCremException {
-        if (stock.getBalls() <= 0) throw new NoMoreIceCremException("Sorry, no more balls");
-        if (stock.getCones() <= 0) throw new NoMoreIceCremException("Sorry, no more cones");
+        if (stock.getBalls() == 0) throw new NoMoreIceCremException("Sorry, no more balls");
+        if (stock.getBalls() < flavors.length) throw new NoMoreIceCremException("Sorry, not enough balls remaining.");
+        if (stock.getCones() == 0) throw new NoMoreIceCremException("Sorry, no more cones");
         else {
             stock.setCones(stock.getCones() - 1);
             stock.setBalls(stock.getBalls() - flavors.length);
@@ -45,13 +46,13 @@ public class IceCreamCar implements IceCreamSeller{
     }
 
     @Override
-    public IceRocket orderIceRocket() throws Exception{
+    public IceRocket orderIceRocket() throws NoMoreIceCremException{
         try {
             prepareIceRocket();
             totalProfit += priceList.getRocketPrice();
             return new IceRocket();
         } catch (NoMoreIceCremException e){
-            throw new Exception(e);
+            throw new NoMoreIceCremException(e.getMessage());
         }
     }
 
@@ -64,13 +65,13 @@ public class IceCreamCar implements IceCreamSeller{
     }
 
     @Override
-    public Magnum orderMagnum(Magnum.MagnumType type) throws Exception{
+    public Magnum orderMagnum(Magnum.MagnumType type) throws NoMoreIceCremException{
         try {
             prepareMagnum(type);
             totalProfit += priceList.getMagnumPrice(type);
             return new Magnum(type);
         } catch (NoMoreIceCremException e) {
-            throw new Exception(e);
+            throw new NoMoreIceCremException(e.getMessage());
         }
     }
 

@@ -8,11 +8,11 @@ public class Magnum implements Eatable{
     }
 
     public Magnum(MagnumType type){
-        setType(type);
+        this.type = type;
     }
 
-    public void setType(MagnumType type) {
-        this.type = type;
+    public MagnumType getType() {
+        return type;
     }
 
     @Override
