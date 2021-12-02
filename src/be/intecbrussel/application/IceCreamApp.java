@@ -15,8 +15,10 @@ public class IceCreamApp {
         Cone.Flavor[] flavors = {Cone.Flavor.BANANA, Cone.Flavor.LEMON, Cone.Flavor.CHOCOLATE};
 
         Cone myCone = iceCube.orderCone(flavors);
-        Magnum myMagnum = iceCube.orderMagnum(Magnum.MagnumType.ROMANTICSTRAWBERRIES);
+        Magnum myMagnum = iceCube.orderMagnum(Magnum.MagnumType.BLACKCHOCOLATE);
         IceRocket myIceRocket = iceCube.orderIceRocket();
+
+        System.out.println(iceCube.getPriceList());
 
         Eatable[] eatables = {myCone, myMagnum, myIceRocket};
         for (Eatable eatable : eatables){

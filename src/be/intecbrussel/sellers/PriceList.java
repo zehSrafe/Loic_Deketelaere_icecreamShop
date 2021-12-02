@@ -43,8 +43,7 @@ public class PriceList {
             case ALPINENUTS: return magnumStandardPrice * 1.5;
             case MILKCHOCOLATE: return  magnumStandardPrice * 1.3;
             case WHITECHOCOLATE: return  magnumStandardPrice * 1.05;
-            case BLACKCHOCOLATE: return  magnumStandardPrice;
+            default: return magnumStandardPrice;
         }
-        return magnumStandardPrice;
     }
 }

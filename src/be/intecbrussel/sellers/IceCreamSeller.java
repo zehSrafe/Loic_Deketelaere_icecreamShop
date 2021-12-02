@@ -10,4 +10,6 @@ public interface IceCreamSeller extends Profitable{
     IceRocket orderIceRocket();
 
     Magnum orderMagnum(Magnum.MagnumType type);
+
+    String getPriceList();
 }
